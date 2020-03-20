@@ -1,0 +1,19 @@
+language:  cpp
+
+matrix:
+  include:
+    - os:         osx
+      script:
+        - make mac
+
+      deploy:
+        provider:       gcs
+        skip_cleanup:   true
+        access_key_id:  GOOG5V7J5HCR4SRF4YCUI7EL
+        secret_access_key:
+          secure: "eJPj8NRQ7uuJ4kYQReqcUtJuHYYeJoZQZ2JZ6MEqo+toEPj/1xNydChYurgaqeFWzsGua2tFYrvJeYg95MbOUNA+oBfS5ZXHT6rlgz27k1jJONKeewV4Ko0RUO4/9/kperRoirqN+4zIuPas9C2prs/RPGQpzeabNFD+hY403hXASV4kPfMbYC5AY8MX14JlmbsarB9f0m2ddMByGcAECncdwOngOUEc4QYlWmtSKm9Hl6D6ZAK2/9BynpckRqmYK4o5W2FZO6nr28lzXRiviIQCVnHXiKZjYPIlj3FdBM6U2M2nEqyDJjN3EdIfv/js4Y+DJYAAuhSyMHxSH4N3NbJTjw4y0P4RpzoAHwyWjAv/1O48jolNxJ6hQ/RgP+vDlwTrC+2kUXGpkEQpXJ8X5kukmdeQaRxFy1S4gtkv3kPFtKsnU2Nt7rdbXew5ILjOOe8ogwbTF+GVB2l0Bt0xHPN2RT/cFW7XdyjSZzykz1oBe9fjzv+TX3CQVwsxfgzU745eLdUiS/mPcFGieMbwXZXlzrSox+SfciqNpdur6g35s4Qz3EqSRYU9SS8EIYLK+WQSM2QJrxJUIAnoombN/SSBUE5TikST/5KPL4R3+Rqr+qNWCxSSwBKH4Jv/1BJCC2iuGmVhmm7d156qIGlODff2be+xD0W6daMmp+hU9j0="
+        bucket:      downloads.arescentral.org
+        local-dir:   out
+        upload-dir:  minivmac
+        on:
+          all_branches:  true
