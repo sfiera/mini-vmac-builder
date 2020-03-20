@@ -3,7 +3,7 @@ LATEST=tgz/minivmac200315.src.tgz
 MAC_PLUS=minivmac-plus.app
 MAC_II=minivmac-ii.app
 MAC_OUT=out/$(MAC_PLUS) out/$(MAC_II)
-MAC_DIST=dist/$(MAC_PLUS).tgz dist/$(MAC_II).tgz
+MAC_DIST=dist/$(MAC_PLUS).zip dist/$(MAC_II).zip
 
 .PHONY: all
 all: mac
@@ -29,10 +29,10 @@ out/$(MAC_PLUS):
 	mkdir -p out
 	cp -r minivmac/minivmac.app $@
 
-dist/$(MAC_PLUS).tgz:
+dist/$(MAC_PLUS).zip:
 	codesign --force --sign "Developer ID Application" out/$(MAC_PLUS)
 	mkdir -p dist
-	tar czf $@ -C out $(MAC_PLUS)
+	ditto -ck --keepParent out/$(MAC_PLUS) $@
 
 out/$(MAC_II):
 	rm -rf minivmac
@@ -43,7 +43,7 @@ out/$(MAC_II):
 	mkdir -p out
 	cp -r minivmac/minivmac.app $@
 
-dist/$(MAC_II).tgz:
+dist/$(MAC_II).zip:
 	codesign --force --sign "Developer ID Application" out/$(MAC_II)
 	mkdir -p dist
-	tar czf $@ -C out $(MAC_II)
+	ditto -ck --keepParent out/$(MAC_II) $@
