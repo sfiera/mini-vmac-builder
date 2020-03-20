@@ -9,7 +9,7 @@ XCODE=-D cur_ide_xcd=1
 MAC=-t mc64
 LOCALTALK=-lt -lto udp
 PLUS=-m Plus
-II=-m II
+II=-m II -speed z
 
 .PHONY: out/minivmac-plus.app.tgz
 out/minivmac-plus.app.tgz:
